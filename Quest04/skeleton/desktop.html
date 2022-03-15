@@ -6,13 +6,31 @@
 		<script src="./desktop.js"></script>
 	</head>
 	<body>
+		<header>
+			<button class="toggleBtn">Desktop변경</button>
+		</header>
 		<section class="desktop">
 		</section>
 
 		<script>
-			let myDesktop = new Desktop(
-				/* TODO: myDesktop 인스턴스의 생성자의 변수로 무엇이 들어가야 할까요? */
-			);
+			const desk = document.querySelector(".desktop");
+			const folderCount = 10;
+			const iconCount = 8;
+			const desktopCount = 2;
+			const myDesktop1 = new Desktop(folderCount, iconCount, "geonyeong");
+			const myDesktop2 = new Desktop(folderCount+5, iconCount-2, "baek");
+			
+			myDesktop1.initDesktop(true);
+			myDesktop2.initDesktop(false);
+
+			const toggleBtn = document.querySelector(".toggleBtn");
+			const windowTemp = document.querySelectorAll("div.window")
+			const handleBtnClick = (e) => {
+				windowTemp.forEach((win) => {
+					win.classList.toggle("disnone");
+				})
+			}
+			toggleBtn.addEventListener("click", handleBtnClick);
 		</script>
 	</body>
 </html>
